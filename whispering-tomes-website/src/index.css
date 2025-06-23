@@ -1,0 +1,99 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 28% 9%;
+    --foreground: 39 38% 92%;
+
+    --card: 220 28% 12%;
+    --card-foreground: 39 38% 92%;
+
+    --popover: 220 28% 7%;
+    --popover-foreground: 39 38% 92%;
+
+    --primary: 42 43% 53%;
+    --primary-foreground: 220 28% 9%;
+
+    --secondary: 18 59% 41%;
+    --secondary-foreground: 39 38% 92%;
+
+    --muted: 220 14% 20%;
+    --muted-foreground: 39 13% 70%;
+
+    --accent: 146 25% 25%;
+    --accent-foreground: 39 38% 92%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 39 38% 92%;
+
+    --border: 220 14% 15%;
+    --input: 220 14% 15%;
+    --ring: 42 43% 53%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-navy text-ivory font-garamond antialiased;
+    background-image: url('/textures/paper-dark.png');
+    background-blend-mode: overlay;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-cormorant tracking-wider;
+    letter-spacing: 0.015em;
+  }
+  
+  p {
+    @apply leading-relaxed;
+    line-height: 1.6;
+  }
+}
+
+@layer components {
+  .ornate-frame {
+    @apply relative p-8;
+    background-image: url('/textures/frame-border.png');
+    background-size: 100% 100%;
+  }
+  
+  .book-page {
+    @apply bg-antique/10 backdrop-blur-sm text-ivory border border-gold/30 p-6 rounded-sm shadow-lg;
+    background-image: url('/textures/paper-light.png');
+    background-blend-mode: overlay;
+  }
+  
+  .nav-item {
+    @apply text-antique hover:text-gold transition-colors duration-300 uppercase text-sm tracking-wider font-cormorant;
+    letter-spacing: 0.2em;
+  }
+  
+  .gold-btn {
+    @apply bg-gold hover:bg-gold/80 text-navy py-2 px-6 rounded border border-gold/50 
+    transition-all duration-300 font-cormorant uppercase tracking-widest text-sm;
+    letter-spacing: 0.2em;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  }
+  
+  .dust-particle {
+    @apply absolute rounded-full bg-gold/30 pointer-events-none animate-dust;
+  }
+}
